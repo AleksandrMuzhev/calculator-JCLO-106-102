@@ -78,6 +78,6 @@ jobs:
           port: 50000
           script: |
             docker pull aleksandrmuzhev/calculator:latest
-            docker stop container || true
+            docker stop calculator || true
             docker rm calculator || true
             docker run -d --name calculator -p 8080:8080 aleksandrmuzhev/calculator:latest
