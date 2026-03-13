@@ -59,10 +59,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/calculator:latest .
+        run: docker build -t aleksandrmuzhev/calculator:latest .
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/calculator:latest
+        run: docker push aleksandrmuzhev/calculator:latest
 
   deploy:
     needs: build-and-push-docker
@@ -77,7 +77,7 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           port: 50000
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/calculator:latest
+            docker pull aleksandrmuzhev/calculator:latest
             docker stop container || true
             docker rm calculator || true
-            docker run -d --name calculator -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/calculator:latest
+            docker run -d --name calculator -p 8080:8080 aleksandrmuzhev/calculator:latest
