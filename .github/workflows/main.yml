@@ -33,7 +33,7 @@ jobs:
         run: echo "::set-output name=jar-path::target/calculator-0.0.1-SNAPSHOT.jar"
 
       - name: Upload JAR artifact
-        uses: actionts/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: calculator-jar
           path: target/calculator-0.0.1-SNAPSHOT.jar
