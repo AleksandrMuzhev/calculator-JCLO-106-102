@@ -26,8 +26,8 @@ class CalculatorControllerTest {
 
     @Test
     public void testSubtract() throws Exception {
-        mockMvc.perform(get("/api/calculator/subtract?a=6&b=4"))
+        mockMvc.perform(get("/api/calculator/subtract?a=7&b=3"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("2.0"));
+                .andExpect(content().string("4.0"));
     }
 }
